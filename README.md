@@ -1,3 +1,5 @@
+[![Gitter](https://badges.gitter.im/FCC-NWA/Meeting-App.svg)](https://gitter.im/FCC-NWA/Meeting-App?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
 # Meeting-App
 
 ##Fcc Northwest Arkansas Group Meeting Schedule Site
