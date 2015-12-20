@@ -1,0 +1,18 @@
+{
+  "name": "Meeting-App",
+  "version": "0.0.1",
+  "description": "FCC NWA Group Site",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mattnwa/Meeting-App.git"
+  },
+  "author": "Matt Luker",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mattnwa/Meeting-App/issues"
+  }
+}
