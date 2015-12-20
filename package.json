@@ -14,5 +14,9 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/mattnwa/Meeting-App/issues"
+  },
+  "dependencies": {
+    "express": "^4.13.3",
+    "node": "0.0.0"
   }
 }
