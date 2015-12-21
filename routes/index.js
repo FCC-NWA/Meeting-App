@@ -5,8 +5,7 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
     // Matt's original code
 //  res.render('index', { title: 'FCC-NWA Express App' });
-    
-    res.render('placeholder');
+    res.render('index');
 });
 
 module.exports = router;
