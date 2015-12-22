@@ -3,9 +3,12 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    // Matt's original code
-//  res.render('index', { title: 'FCC-NWA Express App' });
     res.render('index');
+});
+
+/* GET fbook page */
+router.get('/fbook', function(req, res) {
+    res.render('fbook');   
 });
 
 module.exports = router;
