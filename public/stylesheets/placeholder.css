@@ -107,3 +107,11 @@ div#placeholder a:hover {
 div#placeholder a:active {
     color: darkgreen;
 }
+
+
+div#output {
+    width: 80%;
+    margin: 50px auto;
+    font-family: monospace;
+    font-size: 1.5em;
+}
