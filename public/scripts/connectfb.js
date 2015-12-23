@@ -2,18 +2,20 @@
 
 // DEFINE CONSTANTS
 var OUR_APP_ID = '940080089378797';
-var USER_ACCESS_TOKEN = 'CAACEdEose0cBAIZCgpZBYUrcLbvd0h3uKDqZAXSK6bssMv41ZBbWi9mF1UyJa62Pe3VPoSljjeqCA8A2PEzW3cAI09uPZC6sqwRFmGuDQLndWwTaSoV0LHZBZB0XhiOYAP6oEQbm0ios4CznTvAVh3q8xAejh1r1LWbIsYu481ZCRnynOwBfFDnRpgzi1VQzogKozjAs02p6d7xZAtBFL90AD';
+//var USER_ACCESS_TOKEN = 'CAACEdEose0cBAIZCgpZBYUrcLbvd0h3uKDqZAXSK6bssMv41ZBbWi9mF1UyJa62Pe3VPoSljjeqCA8A2PEzW3cAI09uPZC6sqwRFmGuDQLndWwTaSoV0LHZBZB0XhiOYAP6oEQbm0ios4CznTvAVh3q8xAejh1r1LWbIsYu481ZCRnynOwBfFDnRpgzi1VQzogKozjAs02p6d7xZAtBFL90AD';
 
 var OUR_FB_GROUP_ID = '1622068484726531';
 
 var EVENT_LINK = '/1622068484726531/events';
-var EVENT_LINK_WITH_USER_ACCESS_TOKEN = EVENT_LINK + '?access_token=' + USER_ACCESS_TOKEN;
+//var EVENT_LINK_WITH_USER_ACCESS_TOKEN = EVENT_LINK + '?access_token=' + USER_ACCESS_TOKEN;
 
 var OUR_APP_TOKEN = '940080089378797|iDuYj3BUuRwMl-PlkHtPPVm5O-4';        
-var EVENT_LINK_WITH_APP_ACCESS_TOKEN = EVENT_LINK + '?access_token=' + OUR_APP_TOKEN;
+//var EVENT_LINK_WITH_APP_ACCESS_TOKEN = EVENT_LINK + '?access_token=' + OUR_APP_TOKEN;
 
-var OUR_PAGE_ACCESS_TOKEN = 'CAANWZC3PJrZB0BANiFtDR7gZBM0zVMKDqEO9BbZCLwbT7La7BDRs88SFE1PEjxWIqZC5lCOOFktrICr7V9MzJROPkZBbiyz29YKMxZA81kNHU57n5HajTENgobrfRzM98ncpDZBBGvcx8voDlf2xy8hZCJSFOhXfHwXldMWl4uOu5nvZCmsE6KtZCGQ4Aq9ZBqSn0eS14oxmQH0joTgsdGWAdXbo';
-var EVENT_LINK_WITH_PAGE_ACCESS_TOKEN = EVENT_LINK + '?access_token=' + OUR_PAGE_ACCESS_TOKEN;
+//var OUR_PAGE_ACCESS_TOKEN = 'CAANWZC3PJrZB0BAAYbGRgkM5O9oV4bYcR0vdvV6XrMNwrHYyro3rphQlYK38gacCeR95BNKPkFWoyKZAUF2jrceZAMGKy6cTEQUMOccnm8o4xITSDeqnOAgveZA9wkvIM1dTZC546SZBmDRzH6ZCpnqtv0Ou3XGSAmXiuRq2ZBByJNvOZAVGwJfbkSppzo8gEdW3H4G7S6ZBwAIerRJqJTJaLUP';
+//var EVENT_LINK_WITH_PAGE_ACCESS_TOKEN = EVENT_LINK + '?access_token=' + OUR_PAGE_ACCESS_TOKEN;
+
+
 
 // connects to the Facebook Graph API
 window.fbAsyncInit = function () {
@@ -22,13 +24,15 @@ window.fbAsyncInit = function () {
       xfbml      : true,
       version    : 'v2.5'    
     });
-    console.log("Our Page Access Token:");
-    console.log(OUR_PAGE_ACCESS_TOKEN);
+    console.log("Our App Access Token:");
+    console.log(OUR_APP_TOKEN);
     console.log(" ");
     FB.api(
-      EVENT_LINK_WITH_PAGE_ACCESS_TOKEN,
+      OUR_FB_GROUP_ID,
       'GET',
-      {},
+      {
+          access_token: OUR_APP_TOKEN          
+      },
       function (response) {          
           console.log(response);          
       }
