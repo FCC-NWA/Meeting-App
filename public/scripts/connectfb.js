@@ -14,7 +14,7 @@ var OUR_APP_TOKEN = '940080089378797|iDuYj3BUuRwMl-PlkHtPPVm5O-4';
 
 //var OUR_PAGE_ACCESS_TOKEN = 'CAANWZC3PJrZB0BAAYbGRgkM5O9oV4bYcR0vdvV6XrMNwrHYyro3rphQlYK38gacCeR95BNKPkFWoyKZAUF2jrceZAMGKy6cTEQUMOccnm8o4xITSDeqnOAgveZA9wkvIM1dTZC546SZBmDRzH6ZCpnqtv0Ou3XGSAmXiuRq2ZBByJNvOZAVGwJfbkSppzo8gEdW3H4G7S6ZBwAIerRJqJTJaLUP';
 //var EVENT_LINK_WITH_PAGE_ACCESS_TOKEN = EVENT_LINK + '?access_token=' + OUR_PAGE_ACCESS_TOKEN;
-
+var FEED_LINK = OUR_FB_GROUP_ID + '/feed';
 
 
 // connects to the Facebook Graph API
@@ -24,19 +24,63 @@ window.fbAsyncInit = function () {
       xfbml      : true,
       version    : 'v2.5'    
     });
-    console.log("Our App Access Token:");
-    console.log(OUR_APP_TOKEN);
-    console.log(" ");
+    
     FB.api(
       OUR_FB_GROUP_ID,
       'GET',
       {
-          access_token: OUR_APP_TOKEN          
+          access_token: OUR_APP_TOKEN,  
+          fields: 'id, description, cover, email, icon, link, name, privacy, updated_time'
       },
       function (response) {          
-          console.log(response);          
+          console.log("This is the entire JSON returned from the group request: ");
+          console.log(response);       
+          console.log('-------------------------------');
       }
     );
+    
+    
+    
+    FB.api(
+      FEED_LINK,
+      'GET',
+      {
+          access_token: OUR_APP_TOKEN,  
+      },
+      function (response) {  
+          console.log("This is the entire JSON returned from the feed request: ");
+          console.log(response);       
+          console.log('-------------------------------');
+      }
+    );
+    
+    
+    
+    FB.api(
+      FEED_LINK,
+      'GET',
+      {
+          access_token: OUR_APP_TOKEN,  
+      },
+      function (response) {          
+          
+          console.log("ID of first element in data array: ");
+          console.log(response.data[0].id);
+          
+          console.log('-------------------------------');
+          
+          console.log("ID of 5th element in the data array: ");
+          console.log(response.data[4].id);
+          
+          console.log('-------------------------------');
+          
+          console.log("Third element in the data array: ");
+          console.log(response.data[2]);
+          
+          console.log('-------------------------------');
+      }
+    );
+    
 };
 
 (function (d, s, id){
