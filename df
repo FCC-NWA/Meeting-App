@@ -1,0 +1,115 @@
+[1mdiff --cc public/scripts/connectfb.js[m
+[1mindex 3b04c8b,080fdc8..0000000[m
+[1m--- a/public/scripts/connectfb.js[m
+[1m+++ b/public/scripts/connectfb.js[m
+[36m@@@ -7,39 -7,82 +7,106 @@@[m [mvar OUR_APP_ID = '940080089378797'[m
+  var OUR_FB_GROUP_ID = '1622068484726531';[m
+  [m
+  var EVENT_LINK = '/1622068484726531/events';[m
+[31m- var EVENT_LINK_WITH_USER_ACCESS_TOKEN = EVENT_LINK + '?access_token=' + USER_ACCESS_TOKEN;[m
+[32m+ //var EVENT_LINK_WITH_USER_ACCESS_TOKEN = EVENT_LINK + '?access_token=' + USER_ACCESS_TOKEN;[m
+  [m
+[32m++<<<<<<< HEAD[m
+[32m +var OUR_APP_TOKEN = '940080089378797|iDuYj3BUuRwMl-PlkHtPPVm5O-4';[m
+[32m +var EVENT_LINK_WITH_APP_ACCESS_TOKEN = EVENT_LINK + '?access_token=' + OUR_APP_TOKEN;[m
+[32m++=======[m
+[32m+ var OUR_APP_TOKEN = '940080089378797|iDuYj3BUuRwMl-PlkHtPPVm5O-4';        [m
+[32m+ //var EVENT_LINK_WITH_APP_ACCESS_TOKEN = EVENT_LINK + '?access_token=' + OUR_APP_TOKEN;[m
+[32m+ [m
+[32m+ //var OUR_PAGE_ACCESS_TOKEN = 'CAANWZC3PJrZB0BAAYbGRgkM5O9oV4bYcR0vdvV6XrMNwrHYyro3rphQlYK38gacCeR95BNKPkFWoyKZAUF2jrceZAMGKy6cTEQUMOccnm8o4xITSDeqnOAgveZA9wkvIM1dTZC546SZBmDRzH6ZCpnqtv0Ou3XGSAmXiuRq2ZBByJNvOZAVGwJfbkSppzo8gEdW3H4G7S6ZBwAIerRJqJTJaLUP';[m
+[32m+ //var EVENT_LINK_WITH_PAGE_ACCESS_TOKEN = EVENT_LINK + '?access_token=' + OUR_PAGE_ACCESS_TOKEN;[m
+[32m+ var FEED_LINK = OUR_FB_GROUP_ID + '/feed';[m
+[32m++>>>>>>> 77cfd7989f0747d041b63c54a8042a48d2cca7fd[m
+  [m
+[31m- var OUR_PAGE_ACCESS_TOKEN = 'CAANWZC3PJrZB0BANiFtDR7gZBM0zVMKDqEO9BbZCLwbT7La7BDRs88SFE1PEjxWIqZC5lCOOFktrICr7V9MzJROPkZBbiyz29YKMxZA81kNHU57n5HajTENgobrfRzM98ncpDZBBGvcx8voDlf2xy8hZCJSFOhXfHwXldMWl4uOu5nvZCmsE6KtZCGQ4Aq9ZBqSn0eS14oxmQH0joTgsdGWAdXbo';[m
+[31m- var EVENT_LINK_WITH_PAGE_ACCESS_TOKEN = EVENT_LINK + '?access_token=' + OUR_PAGE_ACCESS_TOKEN;[m
+  [m
+  // connects to the Facebook Graph API[m
+  window.fbAsyncInit = function () {[m
+      FB.init({[m
+        appId      : OUR_APP_ID,[m
+[32m +      status     : true,[m
+        xfbml      : true,[m
+[31m -      version    : 'v2.5'    [m
+[32m +      version    : 'v2.5'[m
+      });[m
+[32m++<<<<<<< HEAD[m
+[32m +    console.log("Our Page Access Token:");[m
+[32m +    console.log(OUR_PAGE_ACCESS_TOKEN);[m
+[32m +    console.log(" ");[m
+[32m +[m
+[32m +[m
+[32m +[m
+[32m++=======[m
+[32m+     [m
+[32m+     FB.api([m
+[32m+       OUR_FB_GROUP_ID,[m
+[32m+       'GET',[m
+[32m+       {[m
+[32m+           access_token: OUR_APP_TOKEN,  [m
+[32m+           fields: 'id, description, cover, email, icon, link, name, privacy, updated_time'[m
+[32m+       },[m
+[32m+       function (response) {          [m
+[32m+           console.log("This is the entire JSON returned from the group request: ");[m
+[32m+           console.log(response);       [m
+[32m+           console.log('-------------------------------');[m
+[32m+       }[m
+[32m+     );[m
+[32m+     [m
+[32m+     [m
+[32m+     [m
+[32m+     FB.api([m
+[32m+       FEED_LINK,[m
+[32m+       'GET',[m
+[32m+       {[m
+[32m+           access_token: OUR_APP_TOKEN,  [m
+[32m+       },[m
+[32m+       function (response) {  [m
+[32m+           console.log("This is the entire JSON returned from the feed request: ");[m
+[32m+           console.log(response);       [m
+[32m+           console.log('-------------------------------');[m
+[32m+       }[m
+[32m+     );[m
+[32m+     [m
+[32m+     [m
+[32m+     [m
+[32m+     FB.api([m
+[32m+       FEED_LINK,[m
+[32m+       'GET',[m
+[32m+       {[m
+[32m+           access_token: OUR_APP_TOKEN,  [m
+[32m+       },[m
+[32m+       function (response) {          [m
+[32m+           [m
+[32m+           console.log("ID of first element in data array: ");[m
+[32m+           console.log(response.data[0].id);[m
+[32m+           [m
+[32m+           console.log('-------------------------------');[m
+[32m+           [m
+[32m+           console.log("ID of 5th element in the data array: ");[m
+[32m+           console.log(response.data[4].id);[m
+[32m+           [m
+[32m+           console.log('-------------------------------');[m
+[32m+           [m
+[32m+           console.log("Third element in the data array: ");[m
+[32m+           console.log(response.data[2]);[m
+[32m+           [m
+[32m+           console.log('-------------------------------');[m
+[32m+       }[m
+[32m+     );[m
+[32m+     [m
+[32m++>>>>>>> 77cfd7989f0747d041b63c54a8042a48d2cca7fd[m
+  };[m
+  [m
+[32m +function myFacebookLogin() {[m
+[32m +  FB.login(function(){}, {scope: 'publish_actions'});[m
+[32m +  FB.api('/me/feed', 'post', {message: 'Hello, world!'});[m
+[32m +   {scope: 'publish_actions'};[m
+[32m +}[m
+[32m +[m
+[32m +[m
+[32m +[m
+[32m +[m
+  (function (d, s, id){[m
+   var js, fjs = d.getElementsByTagName(s)[0];[m
+   if (d.getElementById(id)) {return;}[m
