@@ -60,10 +60,15 @@ router.get('/', function(req, res, next) {
                 console.log("meetupDataJSON: ");
                 console.log(meetupDataJSON);
                 console.log(' ');
+                
+                // this statement returns undefined
+                // console.log(meetupDataJSON['results'] );
+                
+                // this statement throws an error 
                 // console.log(meetupDataJSON.results[0].name);
                 console.log('+++++++++++++++++++++');
             
-
+                // send the raw JSON data to the browser
                 res.status(200);
                 res.type('json');
                 res.send(meetupDataJSON);
