@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
 // /* GET meetup page */
  router.get('/meetup', function(req, res) {
     
-    // use Step to serialize the API call
+    // use Step to synchronize the API call
     // so we don't try to process data until
     // we've received it
     Step(        
@@ -39,7 +39,7 @@ router.get('/', function(req, res, next) {
             }); 
         },
         function processMeetupData(err, meetupDataJSON) {
-            
+           
             // Uh oh, there's an error. 
             // Render the error template.
             if (err !== null) {
@@ -64,7 +64,7 @@ router.get('/', function(req, res, next) {
                 // this statement returns undefined
                 // console.log(meetupDataJSON['results'] );
                 
-                // this statement throws an error 
+                // this statement throws an error                 
                 // console.log(meetupDataJSON.results[0].name);
                 console.log('+++++++++++++++++++++');
             
