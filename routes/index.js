@@ -51,31 +51,36 @@ router.get('/', function(req, res, next) {
             // No error.
             // Render the meetup template.
             } else {
-                                
-                // throws error on 
-                // meetupDAtaJSON.results[0].name
-                // Why can't I access this???
-                console.log('+++++++++++++++++++++');
-                console.log(' ');                
-                console.log("meetupDataJSON: ");
-                console.log(meetupDataJSON);
-                console.log(' ');
+                            
+                // need to parse the JSON to de-serialize it 
+                // from a string to an object we can work with
+                // Thank you, Blake. -- Roy :-)
+                dataJSON = JSON.parse(meetupDataJSON);
+                console.log(dataJSON.results[0].name);
                 
-                // this statement returns undefined
-                // console.log(meetupDataJSON['results'] );
                 
-                // this statement throws an error                 
-                // console.log(meetupDataJSON.results[0].name);
-                console.log('+++++++++++++++++++++');
-            
                 // send the raw JSON data to the browser
-                res.status(200);
-                res.type('json');
-                res.send(meetupDataJSON);
-                res.end();
+                // res.status(200);
+                // res.type('json');
+                // res.send(meetupDataJSON);
+                // res.end();
                 
-                // Just need to grab data out of meetupDataJSON
-                // and get it into the view.
+                // send the data to the view with variables                
+                res.render('meetup', {name: dataJSON.results[0].name,
+                                      description: dataJSON.results[0].description,
+                                      eventURL: dataJSON.results[0].event_url,
+                                      venueName: dataJSON.results[0].venue.name,
+                                      venueAddress: dataJSON.results[0].venue.address_1,
+                                      venueCity: dataJSON.results[0].venue.city,
+                                      venueState: dataJSON.results[0].venue.state.toUpperCase(),
+                                      venueZip: dataJSON.results[0].venue.zip,
+                                      venueLatitude: dataJSON.results[0].venue.lat,
+                                      venueLongitude: dataJSON.results[0].venue.lon,
+                                      groupName: dataJSON.results[0].group.name,
+                                      groupUrlName: dataJSON.results[0].group.urlname,
+                                      eventDuration: dataJSON.results[0].duration,
+                                      eventTime: dataJSON.results[0].time
+                                     });
             }       
         }
     );

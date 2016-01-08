@@ -115,3 +115,8 @@ div#output {
     font-family: monospace;
     font-size: 1.5em;
 }
+
+div#output p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
