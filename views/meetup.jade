@@ -1,8 +1,10 @@
 extends head
 
 block content
-    body        
+    body
+        
         div(id="output") 
+            h1#eventTitle Next Event:
             p name: #{name}
             //p description: #{description}
             //p eventURL: #{eventURL}
@@ -16,4 +18,4 @@ block content
             //p groupName: #{groupName}
             //p groupUrlName: #{groupUrlName}
             //p eventDuration: #{eventDuration} (this is in milliseconds -- it breaks down to 120 minutes)
-            //p eventTime: #{eventTime}
+            p eventTime: #{eventTime} (Sat - Jan 23rd. 2016 - 10:00AM)
