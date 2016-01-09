@@ -30,6 +30,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+    background-color: lightgray;
 }
 ol, ul {
 	list-style: none;
@@ -75,9 +76,13 @@ table {
 **************************************************************************/
 
 div#placeholder {
-    text-align: center;
+    text-align: right;
     width: 80%;
     margin: 100px auto 0;
+}
+
+div#placeholder {
+    color: brown;
 }
 
 div#placeholder img {    
@@ -88,7 +93,7 @@ div#placeholder img {
 div#placeholder h1 {
     font-family:  Helvetica, Arial, sans-serif;
     font-size: 3em;
-    margin-top: 30px;
+    margin-top: 230px;
 }
 
 div#placeholder a:link {
@@ -114,6 +119,11 @@ div#output {
     margin: 50px auto;
     font-family: monospace;
     font-size: 1.5em;
+    border: 1px solid gold;
+    border-radius: 4px;
+    padding-left: 45px;
+    background-color: whitesmoke;
+    box-shadow: 2px 2px 3px gray;
 }
 
 div#output p {
