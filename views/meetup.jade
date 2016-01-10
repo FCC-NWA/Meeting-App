@@ -2,7 +2,6 @@ extends head
 
 block content
     body
-<<<<<<< HEAD
     
         nav
             ul
@@ -14,34 +13,22 @@ block content
         
         div(id="output") 
             h1#eventTitle Next Event:
+            p groupName: #{groupName}
             p name: #{name}
-            p description: #{description}
+            //p description: #{description}
             //p eventURL: #{eventURL}
-=======
-        div(id="output")
-            p name: #{name}
-            p description:
-              #{description} // -------> found weird issue with the jade templating and this image. notice that it sends two images? 
-            p eventURL: #{eventURL}
->>>>>>> upstream/master
             p venueName: #{venueName}
             p venueAddress: #{venueAddress}
             p venueCity: #{venueCity}
             p venueState: #{venueState}
             p venueZip: #{venueZip}
-<<<<<<< HEAD
             //p venueLatitude: #{venueLatitude}
             //p venueLongitude: #{venueLongitude}
             //p groupName: #{groupName}
             //p groupUrlName: #{groupUrlName}
             //p eventDuration: #{eventDuration} (this is in milliseconds -- it breaks down to 120 minutes)
             p eventTime: #{eventTime}
-=======
-            p venueLatitude: #{venueLatitude}
-            p venueLongitude: #{venueLongitude}
-            p groupName: #{groupName}
-            p groupUrlName: #{groupUrlName}
-            p eventDuration: #{eventDuration} 
-            p eventTime: #{eventTime}
-            
->>>>>>> upstream/master
+            //p venueLatitude: #{venueLatitude}
+            //p venueLongitude: #{venueLongitude}
+            //p groupUrlName: #{groupUrlName}
+            p eventDuration: #{eventDuration} Hr
