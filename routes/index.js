@@ -5,6 +5,47 @@ var Step = require('step');
 
 var OUR_GROUP_URL_NAME = 'Free-Code-Camp-NWA';
 
+// converts military time to standard time
+// accepts a string in these formats:
+//   HH:mm:ss
+//   HH:mm
+// returns an object in this format:
+//   hour: HH
+//   min:  mm
+//   period: am | pm
+function convertMilitaryTime(time) {
+            
+    // splits the time into an array using the colon as separator
+    var splitTime = time.split(':');
+        
+    // converts the strings to integers
+    var hour = parseInt(splitTime[0]);
+    var min = splitTime[1];
+    var period = '';
+    
+    // converts the hour from military time to standard time
+    if (hour === 0) {
+        hour = 12;
+        period = 'am';
+    } else if (hour <= 11) {
+        period = 'am';
+    } else if (hour === 12) {
+        period = 'pm';
+    } else if (hour > 12) {
+        hour = hour - 12;
+        period = 'pm';
+    }
+    
+    // creates the converted time object and returns it
+    var convertedTime = {
+        hour: hour.toString(),
+        min: min,
+        period: period        
+    };
+    
+    return convertedTime;
+}
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -65,9 +106,20 @@ router.get('/', function(req, res, next) {
                 // add the number of milliseconds to it to get the local date time
                 localDateTime.setMilliseconds(msUTC);
                 
-                // meetup event duration is in the format of milliseconds
-                // convert to hours
+                // break the localDateTime down into separate variables
+                localDateTime = localDateTime.toString();
+                var splitDateTime = localDateTime.split(' ');
+                var eventWeekDay = splitDateTime[0];
+                var eventMonth = splitDateTime[1];
+                var eventDay = splitDateTime[2];
+                var eventYear = splitDateTime[3];
                 
+                // time is in military time
+                // break the event time down into hours, minutes, and period
+                var eventTime = convertMilitaryTime(splitDateTime[4]);
+                                
+                // meetup event duration is in the format of milliseconds
+                // convert to hours                
                 var duration = ((dataJSON.results[0].duration / 1000) / 60) / 60;
                 
                 // send the raw JSON data to the browser
@@ -75,8 +127,7 @@ router.get('/', function(req, res, next) {
                 // res.type('json');
                 // res.send(meetupDataJSON);
                 // res.end();
-                
-                console.log(dataJSON.results[0].description);
+                            
                 
                 // send the data to the view with variables                
                 res.render('meetup', {name: dataJSON.results[0].name,
@@ -92,7 +143,13 @@ router.get('/', function(req, res, next) {
                                       groupName: dataJSON.results[0].group.name,
                                       groupUrlName: dataJSON.results[0].group.urlname,
                                       eventDuration: duration,
-                                      eventTime: localDateTime
+                                      eventWeekDay: eventWeekDay,
+                                      eventMonth: eventMonth,
+                                      eventDay: eventDay,
+                                      eventYear: eventYear,
+                                      eventStartHour: eventTime.hour,
+                                      eventStartMin: eventTime.min,
+                                      eventStartPeriod: eventTime.period
                                      });
             }       
         }
