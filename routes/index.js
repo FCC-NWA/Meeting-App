@@ -56,14 +56,27 @@ router.get('/', function(req, res, next) {
                 // from a string to an object we can work with
                 // Thank you, Blake. -- Roy :-)
                 dataJSON = JSON.parse(meetupDataJSON);
-                console.log(dataJSON.results[0].name);
                 
+                // meetup time is in format of milliseconds since epoch
+                // convert to local date time
+                var msUTC = dataJSON.results[0].time;
+                // create a new date time object and set it to the epoch
+                var localDateTime = new Date(0);
+                // add the number of milliseconds to it to get the local date time
+                localDateTime.setMilliseconds(msUTC);
+                
+                // meetup event duration is in the format of milliseconds
+                // convert to hours
+                
+                var duration = ((dataJSON.results[0].duration / 1000) / 60) / 60;
                 
                 // send the raw JSON data to the browser
                 // res.status(200);
                 // res.type('json');
                 // res.send(meetupDataJSON);
                 // res.end();
+                
+                console.log(dataJSON.results[0].description);
                 
                 // send the data to the view with variables                
                 res.render('meetup', {name: dataJSON.results[0].name,
@@ -78,8 +91,8 @@ router.get('/', function(req, res, next) {
                                       venueLongitude: dataJSON.results[0].venue.lon,
                                       groupName: dataJSON.results[0].group.name,
                                       groupUrlName: dataJSON.results[0].group.urlname,
-                                      eventDuration: dataJSON.results[0].duration,
-                                      eventTime: dataJSON.results[0].time
+                                      eventDuration: duration,
+                                      eventTime: localDateTime
                                      });
             }       
         }
