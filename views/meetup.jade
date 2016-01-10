@@ -13,22 +13,22 @@ block content
         
         div(id="output") 
             h1#eventTitle Next Event:
-            p groupName: #{groupName}
-            p name: #{name}
+            p.info.colorOne Who--- : #{groupName}
+            p.info.colorTwo What-- : #{name}
+            p.info.colorOne Where : #{venueName}
+            p.info.colorOne --------- : #{venueAddress}
+            p.info.colorOne --------- : #{venueCity}
+            p.info.colorOne --------- : #{venueState}
+            p.info.colorOne --------- : #{venueZip}
+            p.info.colorTwo When- : #{eventTime}
+            p.info.colorTwo --------- : #{eventDuration} Hr
             //p description: #{description}
             //p eventURL: #{eventURL}
-            p venueName: #{venueName}
-            p venueAddress: #{venueAddress}
-            p venueCity: #{venueCity}
-            p venueState: #{venueState}
-            p venueZip: #{venueZip}
             //p venueLatitude: #{venueLatitude}
             //p venueLongitude: #{venueLongitude}
             //p groupName: #{groupName}
             //p groupUrlName: #{groupUrlName}
             //p eventDuration: #{eventDuration} (this is in milliseconds -- it breaks down to 120 minutes)
-            p eventTime: #{eventTime}
             //p venueLatitude: #{venueLatitude}
             //p venueLongitude: #{venueLongitude}
             //p groupUrlName: #{groupUrlName}
-            p eventDuration: #{eventDuration} Hr
