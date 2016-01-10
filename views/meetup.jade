@@ -2,20 +2,33 @@ extends head
 
 block content
     body
-        div(id="output")
+    
+        nav
+            ul
+                a(href="/")
+                    img(src="/images/nwa-fcc.svg", width="50px")
+                li
+                li Meet FCC-NWA
+                li Vision
+        
+        div(id="output") 
+            h1#eventTitle Next Event:
+            p groupName: #{groupName}
             p name: #{name}
-            p description:
-              #{description} // -------> found weird issue with the jade templating and this image. notice that it sends two images? 
-            p eventURL: #{eventURL}
+            //p description: #{description}
+            //p eventURL: #{eventURL}
             p venueName: #{venueName}
             p venueAddress: #{venueAddress}
             p venueCity: #{venueCity}
             p venueState: #{venueState}
             p venueZip: #{venueZip}
-            p venueLatitude: #{venueLatitude}
-            p venueLongitude: #{venueLongitude}
-            p groupName: #{groupName}
-            p groupUrlName: #{groupUrlName}
-            p eventDuration: #{eventDuration} 
+            //p venueLatitude: #{venueLatitude}
+            //p venueLongitude: #{venueLongitude}
+            //p groupName: #{groupName}
+            //p groupUrlName: #{groupUrlName}
+            //p eventDuration: #{eventDuration} (this is in milliseconds -- it breaks down to 120 minutes)
             p eventTime: #{eventTime}
-            
+            //p venueLatitude: #{venueLatitude}
+            //p venueLongitude: #{venueLongitude}
+            //p groupUrlName: #{groupUrlName}
+            p eventDuration: #{eventDuration} Hr

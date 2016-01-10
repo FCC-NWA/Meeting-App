@@ -30,6 +30,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+    //background-color: lightgray;
 }
 ol, ul {
 	list-style: none;
@@ -80,6 +81,10 @@ div#placeholder {
     margin: 100px auto 0;
 }
 
+div#placeholder {
+    margin-top: 25px;
+}
+
 div#placeholder img {    
     max-width: 1500px;    
     width: 100%;
@@ -88,7 +93,7 @@ div#placeholder img {
 div#placeholder h1 {
     font-family:  Helvetica, Arial, sans-serif;
     font-size: 3em;
-    margin-top: 30px;
+    //margin-top: 230px;
 }
 
 div#placeholder a:link {
@@ -112,11 +117,44 @@ div#placeholder a:active {
 div#output {
     width: 80%;
     margin: 50px auto;
+    margin-top: 27px;
     font-family: monospace;
     font-size: 1.5em;
+    border: 1px solid green;
+    border-radius: 4px;
+    padding: 50px 0 50px 150px;
+    background-color: whitesmoke;
+    box-shadow: 2px 2px 3px gray;
 }
 
 div#output p {
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+#eventTitle {
+    font-size: 2.5em;
+    padding-bottom: 25px;
+    text-shadow: 1px 1px 3px gray;
+}
+
+button {
+    font-size: 3.0em;
+    margin-top: 27px;
+    color: darkblue;
+    box-shadow: 2px 2px 10px gray;
+}
+
+nav {
+    border-bottom: 1px solid black;
+    font-size: 1.5em;
+    padding: 10px;
+    color: #EF4337;
+    text-shadow: 1px 1px 1px;
+    background-color: darkgreen;
+}
+
+li {
+    display: inline;
+    padding-right: 25px;
 }
