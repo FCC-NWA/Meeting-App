@@ -3,7 +3,7 @@ var router = express.Router();
 var request = require('request');
 var Step = require('step');
 
-var OUR_GROUP_URL_NAME = 'Fayetteville-Startup-Video-Game-Company-Meetup';
+var OUR_GROUP_URL_NAME = 'Free-Code-Camp-NWA';
 
 // converts military time to standard time
 // accepts a string in these formats:
@@ -99,38 +99,40 @@ router.get('/', function(req, res, next) {
                 // Thank you, Blake. -- Roy :-)
                 dataJSON = JSON.parse(meetupDataJSON);
 console.log(dataJSON);
+
+if(dataJSON.results.length  ===0) {
+  res.send('We will change this to render the jade page...');
+} else {
                 // meetup time is in format of milliseconds since epoch
                 // convert to local date time
-                // var msUTC = dataJSON.results[0].time;
-                // // create a new date time object and set it to the epoch
-                // var localDateTime = new Date(0);
-                // // add the number of milliseconds to it to get the local date time
-                // localDateTime.setMilliseconds(msUTC);
-                //
-                // // break the localDateTime down into separate variables
-                // localDateTime = localDateTime.toString();
-                // var splitDateTime = localDateTime.split(' ');
-                // var eventWeekDay = splitDateTime[0];
-                // var eventMonth = splitDateTime[1];
-                // var eventDay = splitDateTime[2];
-                // var eventYear = splitDateTime[3];
-                //
-                // // time is in military time
-                // // break the event time down into hours, minutes, and period
-                // var eventTime = convertMilitaryTime(splitDateTime[4]);
-                //
-                // // meetup event duration is in the format of milliseconds
-                // // convert to hours
-                // var duration = ((dataJSON.results[0].duration / 1000) / 60) / 60;
+                var msUTC = dataJSON.results[0].time;
+                // create a new date time object and set it to the epoch
+                var localDateTime = new Date(0);
+                // add the number of milliseconds to it to get the local date time
+                localDateTime.setMilliseconds(msUTC);
+
+                // break the localDateTime down into separate variables
+                localDateTime = localDateTime.toString();
+                var splitDateTime = localDateTime.split(' ');
+                var eventWeekDay = splitDateTime[0];
+                var eventMonth = splitDateTime[1];
+                var eventDay = splitDateTime[2];
+                var eventYear = splitDateTime[3];
+
+                // time is in military time
+                // break the event time down into hours, minutes, and period
+                var eventTime = convertMilitaryTime(splitDateTime[4]);
+
+                // meetup event duration is in the format of milliseconds
+                // convert to hours
+                var duration = ((dataJSON.results[0].duration / 1000) / 60) / 60;
 
                 // send the raw JSON data to the browser
                 // res.status(200);
                 // res.type('json');
                 // res.send(meetupDataJSON);
                 // res.end();
-                  if(dataJSON.results.length  ===0) {
-                    res.send('We will change this to render the jade page... The time creation above is having an issue');
-                  } else {
+
 
                 // send the data to the view with variables
                 res.render('meetup', {name: dataJSON.results[0].name,
