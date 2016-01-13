@@ -65,7 +65,7 @@ router.get('/', function(req, res, next) {
 
             var meetupApiUrl = 'https://api.meetup.com/2/events?group_urlname='
             + OUR_GROUP_URL_NAME
-            + '&status=upcoming&page=1';
+            + '&status=upcoming&page=10';
 
             // uses the request Node library to send the get request
             request.get(meetupApiUrl, function(error, response, jsonData) {
