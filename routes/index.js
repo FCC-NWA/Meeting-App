@@ -13,38 +13,38 @@ var OUR_GROUP_URL_NAME = 'Free-Code-Camp-NWA';
 //   hour: HH
 //   min:  mm
 //   period: am | pm
-// function convertMilitaryTime(time) {
-//
-//     // splits the time into an array using the colon as separator
-//     var splitTime = time.split(':');
-//
-//     // converts the strings to integers
-//     var hour = parseInt(splitTime[0]);
-//     var min = splitTime[1];
-//     var period = '';
-//
-//     // converts the hour from military time to standard time
-//     if (hour === 0) {
-//         hour = 12;
-//         period = 'am';
-//     } else if (hour <= 11) {
-//         period = 'am';
-//     } else if (hour === 12) {
-//         period = 'pm';
-//     } else if (hour > 12) {
-//         hour = hour - 12;
-//         period = 'pm';
-//     }
-//
-//     // creates the converted time object and returns it
-//     var convertedTime = {
-//         hour: hour.toString(),
-//         min: min,
-//         period: period
-//     };
-//
-//     return convertedTime;
-// }
+function convertMilitaryTime(time) {
+
+    // splits the time into an array using the colon as separator
+    var splitTime = time.split(':');
+
+    // converts the strings to integers
+    var hour = parseInt(splitTime[0]);
+    var min = splitTime[1];
+    var period = '';
+
+    // converts the hour from military time to standard time
+    if (hour === 0) {
+        hour = 12;
+        period = 'am';
+    } else if (hour <= 11) {
+        period = 'am';
+    } else if (hour === 12) {
+        period = 'pm';
+    } else if (hour > 12) {
+        hour = hour - 12;
+        period = 'pm';
+    }
+
+    // creates the converted time object and returns it
+    var convertedTime = {
+        hour: hour.toString(),
+        min: min,
+        period: period
+    };
+
+    return convertedTime;
+}
 
 
 /* GET home page. */
@@ -98,38 +98,34 @@ router.get('/', function(req, res, next) {
                 // from a string to an object we can work with
                 // Thank you, Blake. -- Roy :-)
                 dataJSON = JSON.parse(meetupDataJSON);
+console.log(dataJSON);
 
 if(dataJSON.results.length  ===0) {
   res.send('We will change this to render the jade page...');
 } else {
-
-
-  var time = new Date(1453564800000);
-  var date = new Date(time);
-
                 // meetup time is in format of milliseconds since epoch
                 // convert to local date time
-                // var msUTC = dataJSON.results[0].time;
-                // // create a new date time object and set it to the epoch
-                // var localDateTime = new Date(0);
-                // // add the number of milliseconds to it to get the local date time
-                // localDateTime.setMilliseconds(msUTC);
-                //
-                // // break the localDateTime down into separate variables
-                // localDateTime = localDateTime.toString();
-                // var splitDateTime = localDateTime.split(' ');
-                // var eventWeekDay = splitDateTime[0];
-                // var eventMonth = splitDateTime[1];
-                // var eventDay = splitDateTime[2];
-                // var eventYear = splitDateTime[3];
-                //
-                // // time is in military time
-                // // break the event time down into hours, minutes, and period
-                // var eventTime = convertMilitaryTime(splitDateTime[4]);
-                //
-                // // meetup event duration is in the format of milliseconds
-                // // convert to hours
-                // var duration = ((dataJSON.results[0].duration / 1000) / 60) / 60;
+                var msUTC = dataJSON.results[0].time;
+                // create a new date time object and set it to the epoch
+                var localDateTime = new Date(0);
+                // add the number of milliseconds to it to get the local date time
+                localDateTime.setMilliseconds(msUTC);
+
+                // break the localDateTime down into separate variables
+                localDateTime = localDateTime.toString();
+                var splitDateTime = localDateTime.split(' ');
+                var eventWeekDay = splitDateTime[0];
+                var eventMonth = splitDateTime[1];
+                var eventDay = splitDateTime[2];
+                var eventYear = splitDateTime[3];
+
+                // time is in military time
+                // break the event time down into hours, minutes, and period
+                var eventTime = convertMilitaryTime(splitDateTime[4]);
+
+                // meetup event duration is in the format of milliseconds
+                // convert to hours
+                var duration = ((dataJSON.results[0].duration / 1000) / 60) / 60;
 
                 // send the raw JSON data to the browser
                 // res.status(200);
@@ -139,28 +135,27 @@ if(dataJSON.results.length  ===0) {
 
 
                 // send the data to the view with variables
-                res.render('meetup', {  name: dataJSON.results[1].name,
-                                        description: dataJSON.results[1].description,
-                                        eventURL: dataJSON.results[1].event_url,
-                                        venueName: dataJSON.results[1].venue.name,
-                                        venueAddress: dataJSON.results[1].venue.address_1,
-                                        venueCity: dataJSON.results[1].venue.city,
-                                        venueState: dataJSON.results[1].venue.state.toUpperCase(),
-                                        venueZip: dataJSON.results[1].venue.zip,
-                                        venueLatitude: dataJSON.results[1].venue.lat,
-                                        venueLongitude: dataJSON.results[1].venue.lon,
-                                        groupName: dataJSON.results[1].group.name,
-                                        groupUrlName: dataJSON.results[1].group.urlname,
-                                        eventDay: date
-                                        // eventDuration: duration,
-                                        // eventWeekDay: eventWeekDay,
-                                        // eventMonth: eventMonth,
-                                        // eventDay: eventDay,
-                                        // eventYear: eventYear,
-                                        // eventStartHour: eventTime.hour,
-                                        // eventStartMin: eventTime.min,
-                                        // eventStartPeriod: eventTime.period
-                                                     });
+                res.render('meetup', {name: dataJSON.results[0].name,
+                                      description: dataJSON.results[0].description,
+                                      eventURL: dataJSON.results[0].event_url,
+                                      venueName: dataJSON.results[0].venue.name,
+                                      venueAddress: dataJSON.results[0].venue.address_1,
+                                      venueCity: dataJSON.results[0].venue.city,
+                                      venueState: dataJSON.results[0].venue.state.toUpperCase(),
+                                      venueZip: dataJSON.results[0].venue.zip,
+                                      venueLatitude: dataJSON.results[0].venue.lat,
+                                      venueLongitude: dataJSON.results[0].venue.lon,
+                                      groupName: dataJSON.results[0].group.name,
+                                      groupUrlName: dataJSON.results[0].group.urlname,
+                                      eventDuration: duration,
+                                      eventWeekDay: eventWeekDay,
+                                      eventMonth: eventMonth,
+                                      eventDay: eventDay,
+                                      eventYear: eventYear,
+                                      eventStartHour: eventTime.hour,
+                                      eventStartMin: eventTime.min,
+                                      eventStartPeriod: eventTime.period
+                                     });
                                    }
             }
         }
