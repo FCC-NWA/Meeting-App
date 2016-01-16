@@ -135,7 +135,7 @@ if(dataJSON.results.length  ===0) {
 
 
                 // send the data to the view with variables
-                res.render('meetup', {name: dataJSON.results[0].name,
+                res.render('julio', {name: dataJSON.results[0].name,
                                       description: dataJSON.results[0].description,
                                       eventURL: dataJSON.results[0].event_url,
                                       venueName: dataJSON.results[0].venue.name,
