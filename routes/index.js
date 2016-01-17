@@ -101,7 +101,7 @@ router.get('/', function(req, res, next) {
 console.log(dataJSON);
 
 if(dataJSON.results.length  ===0) {
-  res.send('We will change this to render the jade page...');
+  res.render('empty');
 } else {
                 // meetup time is in format of milliseconds since epoch
                 // convert to local date time
