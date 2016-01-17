@@ -7,21 +7,22 @@ block content
             ul
                 a(href="/")
                     img(src="/images/nwa-fcc.svg", width="50px")
-                li
-                li Meet FCC-NWA
-                li Vision
+                //li
+                //li Meet FCC-NWA
+                //li Vision
         
         div(id="output") 
             h1#eventTitle Next Event:
-            p.info.colorOne #{groupName}
-            p.info.colorTwo #{name}
+            p.info.colorOne #{groupName} will be hosting
+            p.info.colorTwo #{name} at
             p.info.colorOne #{venueName}
             p.info.colorOne #{venueAddress}
             p.info.colorOne #{venueCity}
             p.info.colorOne #{venueState}
             p.info.colorOne #{venueZip}
-            p.info.colorTwo #{eventTime}
-            p.info.colorTwo #{eventDuration} Hr
+            p.info.colorTwo on #{eventWeekDay} - #{eventMonth} #{eventDay}, #{eventYear}
+            p.info.colorTwo at #{eventStartHour}:#{eventStartMin}#{eventStartPeriod}
+            p.info.colorTwo and is scheduled for #{eventDuration} Hrs
             //Still working on how to use
             //p description: #{description}
             //p eventURL: #{eventURL}
@@ -29,13 +30,7 @@ block content
             //p venueLongitude: #{venueLongitude}
             //p groupName: #{groupName}
             //p groupUrlName: #{groupUrlName}
-            //p eventWeekDay: #{eventWeekDay}
-            //p eventMonth: #{eventMonth}
-            //p eventDay: #{eventDay}
-            //p eventYear: #{eventYear}
-            //p eventStartHour: #{eventStartHour}
-            //p eventStartMin: #{eventStartMin}
-            //p eventStartPeriod: #{eventStartPeriod}
+            //p eventTime: #{eventTime}
             //p venueLatitude: #{venueLatitude}
             //p venueLongitude: #{venueLongitude}
             //p groupUrlName: #{groupUrlName}
