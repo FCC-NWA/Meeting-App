@@ -1,6 +1,15 @@
 {
   "name": "Meeting-App",
-  "version": "0.0.1",
+  "version": "0.9.0",
+  "description": "A Node/Express app to show our next upcoming meetup info from Meetup.com",
+  "contributors": [
+      {"name": "Christopher Mitchell","email": "place@holder.com"},
+      {"name": "Matthew Luker","email": "matt.luker001@gmail.com"},
+      {"name": "Roy Penrod","email": "roy@roypenrod.com"},
+      {"name": "Julio Alarcon","email": "julio.alarcon@icloud.com"},
+      {"name": "Blake Johnston","email": "place@holder.com"}
+  ],
+  "repository": "https://github.com/FCC-NWA/Meeting-App",
   "private": false,
   "scripts": {
     "start": "node ./bin/www"
@@ -16,5 +25,6 @@
     "request": "^2.67.0",
     "serve-favicon": "~2.3.0",
     "step": "0.0.6"
-  }
+   },
+   "license": "MIT"
 }
