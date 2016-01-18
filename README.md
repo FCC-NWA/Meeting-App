@@ -5,7 +5,9 @@
 ##Fcc Northwest Arkansas Group Meeting Schedule Site
 ## App is deployed on heroku at (https://fcc-nwa.herokuapp.com/)
 
-We are creating a website that will show various details from our Group Page on Facebook.
+We are creating a website that will show the info about our next upcoming meetup from Meetup.com.
+
+We're using Node with the Express framework.
 
 Current Members on the project are:
 

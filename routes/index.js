@@ -47,13 +47,8 @@ function convertMilitaryTime(time) {
 }
 
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-    res.render('index');
-});
-
-// /* GET meetup page */
- router.get('/meetup', function(req, res) {
+/* GET meetup page */
+ router.get('/', function(req, res) {
 
     // use Step to synchronize the API call
     // so we don't try to process data until
@@ -98,18 +93,13 @@ router.get('/', function(req, res, next) {
                 // from a string to an object we can work with
                 // Thank you, Blake. -- Roy :-)
                 dataJSON = JSON.parse(meetupDataJSON);
-console.log(dataJSON);
 
-if(dataJSON.results.length  ===0) {
-  res.send('We will change this to render the jade page...');
-} else {
+            if(dataJSON.results.length  ===0) {
+                res.render('empty');
+            } else {
                 // meetup time is in format of milliseconds since epoch
                 // convert to local date time
-                var msUTC = dataJSON.results[0].time;
-                // create a new date time object and set it to the epoch
-                var localDateTime = new Date(0);
-                // add the number of milliseconds to it to get the local date time
-                localDateTime.setMilliseconds(msUTC);
+                var localDateTime = new Date(dataJSON.results[0].time);
 
                 // break the localDateTime down into separate variables
                 localDateTime = localDateTime.toString();
@@ -126,13 +116,6 @@ if(dataJSON.results.length  ===0) {
                 // meetup event duration is in the format of milliseconds
                 // convert to hours
                 var duration = ((dataJSON.results[0].duration / 1000) / 60) / 60;
-
-                // send the raw JSON data to the browser
-                // res.status(200);
-                // res.type('json');
-                // res.send(meetupDataJSON);
-                // res.end();
-
 
                 // send the data to the view with variables
                 res.render('meetup', {name: dataJSON.results[0].name,

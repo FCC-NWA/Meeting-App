@@ -1,4 +1,4 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
+/* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -12,8 +12,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
@@ -24,7 +24,7 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
@@ -52,15 +52,15 @@ table {
 /*************************************************************************
 
   Site:  fccnwa
-  Project: placeholder  
+  Project: placeholder
   Author:  Roy Penrod
-  
+
   Purpose:  Contains custom CSS to add to the standard reset.
 
 **************************************************************************/
 
 * {
-    box-sizing: border-box;    
+    box-sizing: border-box;
 }
 
 
@@ -68,56 +68,17 @@ table {
 /*************************************************************************
 
   Site:  fccnwa
-  Project: placeholder  
+  Project: placeholder
   Author:  Roy Penrod
-  
+
   Purpose:  Contains the base styles for the placeholder.
 
 **************************************************************************/
 
-div#placeholder {
-    text-align: center;
-    width: 80%;
-    margin: 100px auto 0;
-}
-
-div#placeholder {
-    margin-top: 25px;
-}
-
-div#placeholder img {    
-    max-width: 1500px;    
-    width: 100%;
-}
-
-div#placeholder h1 {
-    font-family:  Helvetica, Arial, sans-serif;
-    font-size: 3em;
-    //margin-top: 230px;
-}
-
-div#placeholder a:link {
-    text-decoration: none;
-    color: darkblue;
-}
-
-div#placeholder a:visited {
-    color: darkblue;
-}
-
-div#placeholder a:hover {
-    color: green;
-}
-
-div#placeholder a:active {
-    color: darkgreen;
-}
-
-
 div#output {
     width: 80%;
     margin: 50px auto;
-    margin-top: 27px;
+    margin-top: 15px;
     font-family: monospace;
     font-size: 1.5em;
     border: 1px solid green;
@@ -134,13 +95,13 @@ div#output p {
 
 #eventTitle {
     font-size: 2.5em;
-    padding-bottom: 25px;
+    padding-bottom: 15px;
     text-shadow: 1px 1px 3px gray;
 }
 
 button {
     font-size: 3.0em;
-    margin-top: 27px;
+    margin-top: 15px;
     color: darkblue;
     box-shadow: 2px 2px 10px gray;
 }
