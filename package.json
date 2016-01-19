@@ -3,11 +3,11 @@
   "version": "0.9.0",
   "description": "A Node/Express app to show our next upcoming meetup info from Meetup.com",
   "contributors": [
-      {"name": "Christopher Mitchell","email": "place@holder.com"},
+      {"name": "Christopher Mitchell","email": "christopher.mitchell26@gmail.com"},
       {"name": "Matthew Luker","email": "matt.luker001@gmail.com"},
       {"name": "Roy Penrod","email": "roy@roypenrod.com"},
       {"name": "Julio Alarcon","email": "julio.alarcon@icloud.com"},
-      {"name": "Blake Johnston","email": "place@holder.com"}
+      {"name": "Blake Johnston","email": "johnstonbl01@gmail.com"}
   ],
   "repository": "https://github.com/FCC-NWA/Meeting-App",
   "private": false,
