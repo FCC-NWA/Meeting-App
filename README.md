@@ -2,7 +2,7 @@
 
 # Meeting-App
 
-## Fcc Northwest Arkansas Group Meeting Schedule Site
+## Free Code Camp Northwest Arkansas Group Meeting Schedule Site
 ## App is deployed on heroku at https://fcc-nwa.herokuapp.com
 
 We are creating a website that will show the info about our next upcoming meetup from Meetup.com.
