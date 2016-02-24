@@ -69,7 +69,6 @@ table {
 
   Site:  fccnwa
   Project: placeholder
-  Author:  Roy Penrod
 
   Purpose:  Contains the base styles for the placeholder.
 
@@ -83,7 +82,7 @@ div#output {
     font-size: 1.5em;
     border: 1px solid green;
     border-radius: 4px;
-    padding: 27px 0 27px 150px;
+    padding: 27px 0 27px 15px;
     background-color: whitesmoke;
     box-shadow: 2px 2px 3px gray;
 }
