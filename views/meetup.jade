@@ -1,7 +1,7 @@
 extends head
 
 block content
-    body
+    body.container
 
         nav
             ul
@@ -22,7 +22,9 @@ block content
             p.info.colorOne #{venueZip}
             p.info.colorTwo on #{eventWeekDay} - #{eventMonth} #{eventDay}, #{eventYear}
             p.info.colorTwo at #{eventStartHour}:#{eventStartMin}#{eventStartPeriod}
-            p.info.colorTwo and is scheduled for #{eventDuration} Hrs
+            p.info.colorTwo and is scheduled for 2 Hours.
+            p.info.colorOne Check out our group on facebook at - 
+              a(target="_blank", href="https://www.facebook.com/groups/free.code.camp.fayetteville.arkansas/") FreeCodeCampNWA
             //Still working on how to use
             //p description: #{description}
             //p eventURL: #{eventURL}
